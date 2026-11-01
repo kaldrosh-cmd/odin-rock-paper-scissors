@@ -1,4 +1,7 @@
 const results = document.querySelector("#results")
+const score = document.querySelector("#score")
+let playerScore = 0
+let computerScore = 0
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -57,7 +60,14 @@ const buttons = document.querySelectorAll('#rock, #paper, #scissors');
 buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
         const playerChoice = e.target.id;
-        playRound(getComputerChoice(), playerChoice);
+        const winner = playRound(getComputerChoice(), playerChoice);
+        if (winner === "player") {
+            playerScore++;
+
+        } else if (winner === "computer") {
+            computerScore++;
+        }
+        score.textContent = `Player: ${playerScore} Computer: ${computerScore}`
     })
 })
 
