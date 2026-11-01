@@ -16,23 +16,7 @@ function getComputerChoice() {
     } 
 }
 
-function getPlayerChoice() {
-    const playerChoice = prompt("Choose: rock, paper or scissors");
 
-    if (!playerChoice) {
-        alert("You Did not choose! Try Again.");
-        return getPlayerChoice();
-    }
-
-    const formattedChoice = playerChoice.toLowerCase().trim();
-
-    if (formattedChoice === "rock" || formattedChoice === "paper" || formattedChoice === "scissors") {
-        return formattedChoice;
-    }   else {
-        alert("Wrong choice! Enter rock, paper or scissors.")
-        return getPlayerChoice();
-    }
-}
 
 function playRound(computerChoice, playerChoice) {
     if (computerChoice === playerChoice) {
@@ -68,38 +52,8 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
-function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
 
-    for (let i = 1; i <= 5; i++) {
-        console.log(` --- ROUND ${i} --- `);
 
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice();
-
-        const roundResult = playRound(computerSelection, playerSelection);
-
-        if (roundResult === "player") {
-            playerScore++;
-        } else if (roundResult === "computer") {
-            computerScore++;
-        }
-
-        console.log(`Score -> Player: ${playerScore} | Computer: ${computerScore}`);
-    }
-
-    console.log("=== GAME OVER ===");
-    if (playerScore > computerScore) {
-        console.log(`Congratulations! You won the game! Final score: ${playerScore}-${computerScore}`);
-    } else if (computerScore > playerScore) {
-        console.log(`You lost the game! Better luck next time. Final score ${playerScore}-${computerScore}`);
-    } else {
-        console.log(`It's a global tie! Final score: ${playerScore}-${computerScore}`);
-    }
-}
-
-playGame();
 
 
 
