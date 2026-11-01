@@ -1,3 +1,5 @@
+const results = document.querySelector("#results")
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -18,33 +20,33 @@ function getComputerChoice() {
 
 function playRound(computerChoice, playerChoice) {
     if (computerChoice === playerChoice) {
-        console.log("Tie!");
+        results.textContent = "Tie!";
         return "tie";
     }
     else if (computerChoice === "rock") {
         if (playerChoice === "scissors") {
-            console.log("You lose rock beats scissors!");
+            results.textContent = "You lose rock beats scissors!";
             return "computer";
         } else {
-            console.log("You win Paper beats rock!");
+            results.textContent = "You win Paper beats rock!";
             return "player";
         }
     }
     else if (computerChoice === "paper") {
         if (playerChoice === "rock") {
-            console.log("You lose paper beats rock!");
+            results.textContent = "You lose paper beats rock!";
             return "computer";
         } else {
-            console.log("You win scissors beat paper!");
+            results.textContent = "You win scissors beat paper!";
             return "player";
         }
     }
     else if (computerChoice === "scissors") {
         if (playerChoice === "paper") {
-            console.log("You lose scissors beat paper!");
+            results.textContent = "You lose scissors beat paper!";
             return "computer";
         } else {
-            console.log("You win rock beats scissors!");
+            results.textContent = "You win rock beats scissors!";
             return "player";
         }
     }
