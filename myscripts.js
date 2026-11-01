@@ -16,8 +16,6 @@ function getComputerChoice() {
     } 
 }
 
-
-
 function playRound(computerChoice, playerChoice) {
     if (computerChoice === playerChoice) {
         console.log("Tie!");
@@ -52,6 +50,14 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
+const buttons = document.querySelectorAll('#rock, #paper, #scissors');
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        const playerChoice = e.target.id;
+        playRound(getComputerChoice(), playerChoice);
+    })
+})
 
 
 
